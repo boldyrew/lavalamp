@@ -9,11 +9,13 @@ lavalamp.init = function(navObj, speed, color, height) {
 						width: "0",
 						height: height,
 						background: color,
-						top: navCore.children("li:first > a").offset()["top"],
-						left: navCore.children("li:first > a").offset()["left"]
+						top: navCore.children("li:first").children("a").offset()["top"],
+						left: navCore.children("li:first").children("a").offset()["left"]
 	});
+
+
 	var navPosition = navCore.children("li:first").offset();
-	navCore.children("li > a").hover(inMenuItem, function() {});
+	navCore.children("li").children("a").hover(inMenuItem, function() {});
 
 	function inMenuItem(e) {
 	
@@ -24,6 +26,7 @@ lavalamp.init = function(navObj, speed, color, height) {
 			left: $(e.target).offset()["left"],
 			width: totalWidth + "px"
 		}, speed);
+	}
 
 	navCore.mouseout(hideCursor);
 
